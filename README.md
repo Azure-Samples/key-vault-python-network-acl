@@ -5,7 +5,7 @@ author: schaabs
 ---
 # Authentication samples for Azure Key Vault using the Azure Python SDK
 
-This Sample repo includes sample code demonstrating common mechanism for authenticating to an Azure Key Vault vault.
+This Sample repo includes sample code that demonstrates managing network access to a key vault through VNET and IP ACLs using the Azure Python SDK.
 
 ## Samples in this repo
 * network_acl_sample.py
@@ -44,12 +44,22 @@ or [Azure Portal](http://azure.microsoft.com/documentation/articles/resource-gro
 
 6. Export these environment variables into your current shell.
 
+    on Linux and Mac
     ```
     export AZURE_TENANT_ID={your tenant id}
     export AZURE_CLIENT_ID={your service principal AppID}
     export AZURE_CLIENT_OID={your service principal OID}
     export AZURE_CLIENT_SECRET={your application key}
     export AZURE_SUBSCRIPTION_ID={your subscription id}
+    ```
+
+    on Windows
+    ```
+    set AZURE_TENANT_ID={your tenant id}
+    set AZURE_CLIENT_ID={your service principal AppID}
+    set AZURE_CLIENT_OID={your service principal OID}
+    set AZURE_CLIENT_SECRET={your application key}
+    set AZURE_SUBSCRIPTION_ID={your subscription id}
     ```
 
 7. Run the samples, optionally specifying a space delimited list of specific samples to run.
