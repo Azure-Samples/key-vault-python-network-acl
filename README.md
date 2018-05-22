@@ -1,57 +1,78 @@
-# Project Name
+---
+services: key-vault
+platforms: python
+author: schaabs
+---
+# Authentication samples for Azure Key Vault using the Azure Python SDK
 
-(short, 1-3 sentenced, description of the project)
+This Sample repo includes sample code demonstrating common mechanism for authenticating to an Azure Key Vault vault.
 
-## Features
-
-This project framework provides the following features:
-
-* Feature 1
-* Feature 2
-* ...
-
-## Getting Started
-
-### Prerequisites
-
-(ideally very short, if any)
-
-- OS
-- Library version
-- ...
-
-### Installation
-
-(ideally very short)
-
-- npm install [package name]
-- mvn install
-- ...
-
-### Quickstart
-(Add steps to get up and running quickly)
-
-1. git clone [repository clone url]
-2. cd [respository name]
-3. ...
+## Samples in this repo
+* network_acl_sample.py
+  * create_vault_with_network --Creates a key vault with network access limited by a NetworkRuleSet
 
 
-## Demo
+## Running The samples
+1. If you don't already have it, [install Python](https://www.python.org/downloads/).
 
-A demo app is included to show how to use the project.
+2. We recommend using a [virtual environment](https://docs.python.org/3/tutorial/venv.html) to run this example, but it's not mandatory. You can initialize a virtual environment this way:
 
-To run the demo, follow these steps:
+    ```
+    pip install virtualenv
+    virtualenv mytestenv
+    cd mytestenv
+    source bin/activate
+    ```
 
-(Add steps to start up the demo)
+3. Clone the repository.
 
-1.
-2.
-3.
+    ```
+    git clone https://github.com/Azure-Samples/key-vault-python-network-acl.git
+    ```
 
-## Resources
+4. Install the dependencies using pip.
 
-(Any additional resources or related projects)
+    ```
+    cd key-vault-python-network-acl
+    pip install -r requirements.txt
+    ```
 
-- Link to supporting information
-- Link to similar sample
-- ...
+5. Create an Azure service principal, using
+[Azure CLI](http://azure.microsoft.com/documentation/articles/resource-group-authenticate-service-principal-cli/),
+[PowerShell](http://azure.microsoft.com/documentation/articles/resource-group-authenticate-service-principal/)
+or [Azure Portal](http://azure.microsoft.com/documentation/articles/resource-group-create-service-principal-portal/).
+
+6. Export these environment variables into your current shell.
+
+    ```
+    export AZURE_TENANT_ID={your tenant id}
+    export AZURE_CLIENT_ID={your service principal AppID}
+    export AZURE_CLIENT_OID={your service principal OID}
+    export AZURE_CLIENT_SECRET={your application key}
+    export AZURE_SUBSCRIPTION_ID={your subscription id}
+    ```
+
+7. Run the samples, optionally specifying a space delimited list of specific samples to run.
+
+    ```
+    python network_acl_sample.py
+    ```
+
+## Minimum Requirements
+Python 2.7, 3.3, or 3.4.
+To install Python, please go to https://www.python.org/downloads/
+
+## More information
+
+* What is Key Vault? - https://docs.microsoft.com/en-us/azure/key-vault/key-vault-whatis
+* Get started with Azure Key Vault - https://docs.microsoft.com/en-us/azure/key-vault/key-vault-get-started
+* Azure Key Vault General Documentation - https://docs.microsoft.com/en-us/azure/key-vault/
+* Azure Key Vault REST API Reference - https://docs.microsoft.com/en-us/rest/api/keyvault/
+* Azure SDK for Python Documentation - http://azure-sdk-for-python.readthedocs.io/en/latest/
+* Azure Active Directory Documenation - https://docs.microsoft.com/en-us/azure/active-directory/
+
+# Contributing
+
+This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). For more information
+see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com)
+with any additional questions or comments.

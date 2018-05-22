@@ -1,0 +1,2 @@
+azure-mgmt-keyvault==1.0.0b1
+azure-mgmt-resource==1.2.2
