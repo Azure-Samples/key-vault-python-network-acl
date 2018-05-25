@@ -3,7 +3,7 @@ services: key-vault
 platforms: python
 author: schaabs
 ---
-# Authentication samples for Azure Key Vault using the Azure Python SDK
+# Managing network access to a key vault using the Azure Python SDK
 
 This Sample repo includes sample code that demonstrates managing network access to a key vault through VNET and IP ACLs using the Azure Python SDK.
 
