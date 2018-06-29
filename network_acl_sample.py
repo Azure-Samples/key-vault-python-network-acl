@@ -12,7 +12,7 @@
 # AZURE_SUBSCRIPTION_ID: with your Azure Subscription Id
 #
 
-from .util import KeyVaultSampleBase, get_name, keyvaultsample
+from util import KeyVaultSampleBase, get_name, keyvaultsample
 from msrestazure.azure_active_directory import ServicePrincipalCredentials
 from azure.mgmt.keyvault import KeyVaultManagementClient
 from azure.mgmt.keyvault.models import AccessPolicyEntry, VaultProperties, Sku, KeyPermissions, SecretPermissions, \
