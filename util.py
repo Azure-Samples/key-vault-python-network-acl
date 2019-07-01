@@ -18,13 +18,15 @@ except:
 
 _rand = Random()
 
+
 def get_name(base, delimiter='-'):
     """
     randomly builds a unique name for an entity beginning with the specified base 
     :param base: the prefix for the generated name
     :return: a random unique name
     """
-    name = '{}{}{}{}{}'.format(base, delimiter, _rand.choice(adjectives), delimiter, _rand.choice(nouns))
+    name = '{}{}{}{}{}'.format(base, delimiter, _rand.choice(
+        adjectives), delimiter, _rand.choice(nouns))
     if len(name) < 22:
         name += delimiter
         for i in range(min(5, 23 - len(name))):
@@ -36,6 +38,7 @@ def keyvaultsample(f):
     """
     decorator function for marking key vault sample methods
     """
+
     def wrapper(self):
         try:
             print('--------------------------------------------------------------------')
@@ -45,7 +48,8 @@ def keyvaultsample(f):
             f(self)
         except Exception as e:
             print('ERROR: running sample failed with raised exception:')
-            traceback.print_exception(type(e), e, getattr(e, '__traceback__', None))
+            traceback.print_exception(
+                type(e), e, getattr(e, '__traceback__', None))
             raise e
     wrapper.__name__ = f.__name__
     wrapper.__doc__ = f.__doc__
@@ -88,7 +92,8 @@ class SampleConfig(object):
         self.client_secret = os.getenv('AZURE_CLIENT_SECRET', None)
         self.client_oid = os.getenv('AZURE_CLIENT_OID', None)
         self.location = os.getenv('AZURE_LOCATION', None)
-        self.group_name = os.getenv('AZURE_RESOURCE_GROUP', 'azure-key-vault-samples')
+        self.group_name = os.getenv(
+            'AZURE_RESOURCE_GROUP', 'azure-key-vault-samples')
         self.storage_account_name = os.getenv('AZURE_STORAGE_NAME', None)
         self.vault_name = os.getenv('AZURE_VAULT_NAME', None)
         self.mgmt_client_creds = None
@@ -110,19 +115,21 @@ class KeyVaultSampleBase(object):
         """
         Provides common setup for Key Vault samples such as creating the authentication context, sample resource group
         if needed, and ensuring proper access for the service principal.
-         
+
         :return: None 
         """
 
         if not KeyVaultSampleBase._setup_complete:
 
-            self.config.auth_context = adal.AuthenticationContext('https://login.microsoftonline.com/%s' % self.config.tenant_id)
+            self.config.auth_context = adal.AuthenticationContext(
+                'https://login.microsoftonline.com/%s' % self.config.tenant_id)
 
             creds = ServicePrincipalCredentials(client_id=self.config.client_id,
                                                 secret=self.config.client_secret,
                                                 tenant=self.config.tenant_id)
 
-            resource_mgmt_client = ResourceManagementClient(creds, self.config.subscription_id)
+            resource_mgmt_client = ResourceManagementClient(
+                creds, self.config.subscription_id)
 
             # ensure the service principle has key vault and storage as valid providers
             resource_mgmt_client.providers.register('Microsoft.KeyVault')

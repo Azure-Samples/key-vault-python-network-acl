@@ -67,7 +67,8 @@ class NetworkAclSample(KeyVaultSampleBase):
             # the action to take if access attempt doesn't match any rule.  Valid values are allow or deny
             default_action=NetworkRuleAction.deny,
             # IP rules (allowed IPv4 addresses / ranges)
-            ip_rules=[IPRule(value='0.0.0.0/0')],  #  Allow access from a IP address range
+            # Allow access from a IP address range
+            ip_rules=[IPRule(value='0.0.0.0/0')],
             # Virtual network rules(Allows access to Azure Virtual Networks by their Azure Resource ID)
             virtual_network_rules=[
                 # To specifically allow access to a vnet, uncomment the line below and replace the id with the correct
