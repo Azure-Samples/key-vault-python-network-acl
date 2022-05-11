@@ -3,6 +3,9 @@ services: key-vault
 platforms: python
 author: schaabs
 ---
+
+***DISCLAIMER: The samples in this repo are for `azure-mgmt-keyvault` v1 (1.x). For the latest version of `azure-mgmt-keyvault`, please visit the [`azure-sdk-for-python` repository](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/keyvault/azure-mgmt-keyvault). This repo is archived since a new version of `azure-mgmt-keyvault` has become stable.***
+
 # Managing network access to a key vault using the Azure Python SDK
 
 This Sample repo includes sample code that demonstrates managing network access to a key vault through VNET and IP ACLs using the Azure Python SDK.
